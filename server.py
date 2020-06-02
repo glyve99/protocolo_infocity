@@ -46,6 +46,7 @@ def handle_client(conn, addr):
             if code == 104:
                 try:
                     consts['PERMITED_DEVICES'].append(msg['param'][0])
+                    sendToClient(json.dumps(messageMaker(222)), conn)
                 except:
                     sendToClient(json.dumps(messageMaker(210)), conn)
             if code == 105:

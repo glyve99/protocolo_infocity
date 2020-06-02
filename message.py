@@ -30,6 +30,7 @@ def messageMaker(c, _id = []):
         218 : message(218, 'IC-IDF_ServerError', _id),
         219 : message(219, 'IC-IDF_Success', _id),
         220 : message(220, 'IC-IDF_ServerDSuccess', _id),
-        221 : message(221, 'IC-IDF_ServerSuccess', _id)
+        221 : message(221, 'IC-IDF_ServerSuccess', _id),
+        222 : message(222, 'IC-Control_IDpassSuccess', _id)
     }
     return switcher.get(c, None)
