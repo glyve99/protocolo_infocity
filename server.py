@@ -53,12 +53,33 @@ def handle_client(conn, addr):
                     sendToClient(json.dumps(messageMaker(208)), conn)
                 else:
                     sendToClient(json.dumps(messageMaker(211)), conn)
-            if code == 102:
+            if code == 106:
+                if fakeAuthDevice(int(msg['param'][2])):
+                    placa = msg['param'][0]
+                    horario = msg['param'][1]
+                    _id = msg['param'][2]
+                    print(dict(placa=placa, horario=horario, _id=_id))
+                    sendToClient(json.dumps(messageMaker(219)), conn)
+                else:
+                    sendToClient(json.dumps(messageMaker(216)), conn)
+            if code == 107:
                 try:
-                    connected = False
-                    sendToClient(json.dumps(messageMaker(202)), conn)
+                    imagem = msg['param'][0]
+                    placa = msg['param'][1]
+                    velocidade = msg['param'][2]
+                    print(dict(imagem=imagem, placa=placa, velocidade=velocidade))
+                    sendToClient(json.dumps(messageMaker(220)), conn)
                 except:
-                    sendToClient(json.dumps(messageMaker(205)), conn)
+                    sendToClient(json.dumps(messageMaker(217)), conn)
+            if code == 108:
+                try:
+                    imagem = msg['param'][0]
+                    placa = msg['param'][1]
+                    velocidade = msg['param'][2]
+                    print(dict(imagem=imagem, placa=placa, velocidade=velocidade))
+                    sendToClient(json.dumps(messageMaker(221)), conn)
+                except:
+                    sendToClient(json.dumps(messageMaker(218)), conn)
 
             print(f'[{addr}] {msg}')
     

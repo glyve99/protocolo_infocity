@@ -8,6 +8,6 @@ consts = {
     'FORMAT' : 'utf-8',
     'DISCONNECT_MESSAGE' : '!DISCONNECT',
     'PERMITED_IPS' : ['127.0.0.1'],
-    'PERMITED_DEVICES' : [99999],
+    'PERMITED_DEVICES' : [99999, 12345, 33333, 101010, 24680],
     'SECURITY_KEY' : 'guilhermeluanaluskastk'
 }
