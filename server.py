@@ -40,7 +40,6 @@ def handle_client(conn, addr):
             if code == 103:
                 if len(consts['PERMITED_DEVICES']) <= 5:
                     sendToClient(json.dumps(messageMaker(206)), conn)
-                    sendToClient(json.dumps(messageMaker(207)), conn)
                 else:
                     sendToClient(json.dumps(messageMaker(209)), conn)
             if code == 104:
