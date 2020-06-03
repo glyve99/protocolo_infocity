@@ -32,11 +32,18 @@ def handle_client(conn, addr):
             msg = json.loads(msg)
             code = msg['code']
 
+
             if code == 101:
                 if fakeAuthDevice(int(msg['param'][0])):
                     sendToClient(json.dumps(messageMaker(201)), conn)
                 else:
                     sendToClient(json.dumps(messageMaker(204)), conn)
+            if code == 102:
+                try:
+                    sendToClient(json.dumps(messageMaker(202)), conn)
+                    connected = False
+                except:
+                    sendToClient(json.dumps(messageMaker(205)))
             if code == 103:
                 if len(consts['PERMITED_DEVICES']) <= 5:
                     sendToClient(json.dumps(messageMaker(206)), conn)
